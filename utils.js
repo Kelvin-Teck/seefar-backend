@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export const connectDB = async () => {
   const CONNECTION = process.env.MONGO_URI || process.env.MONGO_URI_PRODUCTION;
-  console.log(CONNECTION)
+
   try {
     mongoose.set("strictQuery", false);
     await mongoose.connect(CONNECTION, {

@@ -8,7 +8,8 @@ dotenv.config();
 // Routes
 import authRoute from "./routes/authRoute.js";
 import userRoute from "./routes/userRoute.js";
-import postRoute from "./routes/postRoute.js"
+import postRoute from "./routes/postRoute.js";
+import uploadRoute from "./routes/uploadRoute.js";
 
 const PORT = process.env.PORT;
 
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/post", postRoute);
+app.use('/upload', uploadRoute);
 
 app.listen(PORT, async () => {
   await connectDB();
