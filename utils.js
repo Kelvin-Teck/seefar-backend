@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-  const CONNECTION = process.env.MONGO_URI || process.env.MONGO_URI_PRODUCTION;
+  const CONNECTION =  process.env.MONGO_URI_PRODUCTION || process.env.MONGO_URI;
 
   try {
     mongoose.set("strictQuery", false);

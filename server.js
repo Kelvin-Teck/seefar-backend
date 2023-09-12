@@ -40,5 +40,5 @@ app.use("/upload", uploadRoute);
 
 app.listen(PORT, async () => {
   await connectDB();
-  console.log(`server running on http://localhost:${PORT}`);
+  console.log(`server running on https://localhost:${PORT}`);
 });
