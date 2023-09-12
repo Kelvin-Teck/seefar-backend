@@ -2,7 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { connectDB } from "./utils.js";
 import dotenv from "dotenv";
-import cors from 'cors';
+import cors from "cors";
 dotenv.config();
 
 // Routes
@@ -16,8 +16,8 @@ const PORT = process.env.PORT;
 const app = express();
 
 // serve the images for public usage...
-app.use(express.static('public'))
-// app.use('/images', express.static('images'));
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
 
 // Middlewares
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -28,7 +28,7 @@ app.use(cors());
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
 app.use("/post", postRoute);
-app.use('/upload', uploadRoute);
+app.use("/upload", uploadRoute);
 
 app.listen(PORT, async () => {
   await connectDB();
