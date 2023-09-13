@@ -6,7 +6,7 @@ export const connectDB = async () => {
     const CONNECTION = process.env.MONGO_URI;
     console.log(CONNECTION)
 
-    mongoose.set("strictQuery", false);
+    // mongoose.set("strictQuery", false);
     await mongoose.connect(CONNECTION, {
       dbName: "seefar",
       useNewUrlParser: true,
