@@ -14,13 +14,14 @@ import uploadRoute from "./routes/uploadRoute.js";
 const PORT = process.env.PORT;
 
 const app = express();
-let corsOptions = {
-  origin: ["http://localhost:3000", "https://seefar.vercel.app/"],
-  allowedHeaders: ['Accept', 'Content-Type'],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  "Access-Control-Allow-Origin": "https://seefar.vercel.app/",
-  credentials: true
-};
+
+// let corsOptions = {
+//   origin: ["http://localhost:3000", "https://seefar.vercel.app/"],
+//   allowedHeaders: ['Accept', 'Content-Type'],
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+//   "Access-Control-Allow-Origin": "https://seefar.vercel.app/" ,
+//   credentials: true
+// };
 
 // serve the images for public usage...
 app.use(express.static("public"));
@@ -30,7 +31,7 @@ app.use("/images", express.static("images"));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Routes Initialization
 app.use("/auth", authRoute);
