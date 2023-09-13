@@ -40,11 +40,8 @@ app.use("/post", postRoute);
 app.use("/upload", uploadRoute);
 
 const startService = async () => {
-  if (await connectDB()) {
-    app.listen(PORT, async () => {
-      console.log(`server running on https://localhost:${PORT}`);
-    });
-  }
+  const startDB = connectDB()
+  startDB.then( () => app.listen(PORT, () => console.log(`server running on port => ${PORT}`)))
 };
 
 startService();
